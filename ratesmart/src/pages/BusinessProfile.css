@@ -1,0 +1,102 @@
+.profile-container {
+  max-width: 900px;
+  margin: auto;
+  padding: 30px;
+  background-color: #f5fffa;
+  color: #0b615e;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+h1 {
+  text-align: center;
+  color: #0b615e;
+}
+
+.card {
+  background-color: white;
+  padding: 20px 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.rating-distribution .rating-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+}
+
+.rating-bar .bar {
+  background-color: #ddd;
+  flex: 1;
+  height: 14px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.rating-bar .bar-fill {
+  background-color: #34caa1;
+  height: 100%;
+  transition: width 0.3s ease;
+}
+
+.review-line {
+  margin: 4px 0;
+  line-height: 1.4;
+}
+
+.review-text {
+  font-style: italic;
+  color: #333;
+}
+
+.fake-inline {
+  color: red;
+  font-weight: bold;
+}
+
+.reply-line {
+  margin-left: 15px;
+  font-size: 0.9em;
+  color: #0b615e;
+}
+
+.review-divider {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 5px 0;
+}
+.nav-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.nav-buttons button {
+  background-color: #34caa1;
+  color: white;
+  padding: 12px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.nav-buttons button:hover {
+  background-color: #28a68d;
+}

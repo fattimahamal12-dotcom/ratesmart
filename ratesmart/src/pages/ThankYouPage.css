@@ -1,0 +1,44 @@
+.thank-you-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f5fffa;
+  color: #0b615e;
+  font-family: 'Segoe UI', sans-serif;
+  padding: 20px;
+}
+
+.thank-you-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  max-width: 500px;
+  width: 100%;
+}
+
+.thank-you-card h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.thank-you-card p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.thank-you-card button {
+  background-color: #34caa1;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.thank-you-card button:hover {
+  background-color: #28a68d;
+}

@@ -1,0 +1,151 @@
+:root {
+  --mint: #a2f2e9;
+  --teal: #20c9b5;
+  --dark-teal: #0d9488;
+  --light-bg: #f0fdfa;
+  --card-bg: #ffffff;
+  --text-dark: #134e4a;
+  --text-light: #5eead4;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home-container {
+  background-color: var(--light-bg);
+  min-height: 100vh;
+  padding: 1rem;
+  color: var(--text-dark);
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+  animation-fill-mode: both;
+}
+.hero-section {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.brand {
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.subtitle {
+  color: var(--dark-teal);
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.action-card {
+  background: var(--card-bg);
+  border: none;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.action-card h3 {
+  color: var(--dark-teal);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.action-btn {
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.teal-btn {
+  background-color: var(--teal);
+  color: white;
+}
+
+.teal-btn:hover {
+  background-color: var(--dark-teal);
+  transform: translateY(-2px);
+}
+
+.mint-btn {
+  background-color: var(--mint);
+  color: var(--text-dark);
+}
+
+.mint-btn:hover {
+  background-color: var(--teal);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.dark-teal-btn {
+  background-color: var(--dark-teal);
+  color: white;
+}
+
+.dark-teal-btn:hover {
+  background-color: var(--teal);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 1.5rem;
+  }
+  
+  .stats-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+}

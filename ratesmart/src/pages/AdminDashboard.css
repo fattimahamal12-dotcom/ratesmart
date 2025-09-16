@@ -1,0 +1,275 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5fffa;
+  color: #0b615e;
+}
+
+.admin-dashboard {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.admin-header h1 {
+  font-size: 2em;
+  margin: 0;
+}
+
+.admin-actions {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.admin-actions button {
+  background-color: #34caa1;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.admin-actions button:hover {
+  background-color: #28a68d;
+}
+
+.admin-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.tab {
+  padding: 10px 18px;
+  background-color: #e0f7f1;
+  color: #0b615e;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.tab:hover {
+  background-color: #34caa1;
+  color: white;
+}
+
+.tab.active {
+  background-color: #0b615e;
+  color: white;
+}
+
+.tab-content {
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  overflow-x: auto;
+}
+
+.overview-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-left: 6px solid #34caa1;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  color: #0b615e;
+}
+
+.card p {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #28a68d;
+}
+
+.manage-section input {
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+.business-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.business-card {
+  background-color: #ffffff;
+  border-left: 5px solid #34caa1;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.business-card:hover {
+  transform: translateY(-2px);
+}
+
+.business-card h3 {
+  margin: 0 0 10px;
+  color: #0b615e;
+}
+
+.business-card p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.business-card button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #34caa1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.business-card button:hover {
+  background-color: #28a68d;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+table th, table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #e0f7f1;
+  color: #0b615e;
+}
+
+table td button {
+  background-color: #ff4d4d;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+table td button:hover {
+  background-color: #e60000;
+}
+
+h3 {
+  color: #0b615e;
+  margin-top: 30px;
+}
+
+.review-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.review-card {
+  background-color: #ffffff;
+  border-left: 5px solid #34caa1;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+}
+
+.review-card h3 {
+  margin: 0 0 10px;
+  color: #0b615e;
+}
+
+.review-card p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.review-card button {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.review-card button:hover {
+  background-color: #e60000;
+}
+
+
+@media (max-width: 768px) {
+  .admin-header h1 {
+    font-size: 1.6em;
+  }
+
+  .admin-actions {
+    flex-direction: column;
+    right: 10px;
+    top: 10px;
+  }
+
+  .admin-actions button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .tab {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .card p {
+    font-size: 1.2em;
+  }
+
+  table th, table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
