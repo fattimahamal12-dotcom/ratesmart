@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import './BusinessProfile.css';
-import '../styles/components.css';
 
 const BusinessProfile = () => {
   const navigate = useNavigate();
@@ -72,7 +71,7 @@ const BusinessProfile = () => {
       <div className="profile-container">
         <h1>Error Loading Profile 🚨</h1>
         <p style={{ color: 'red' }}>{error}</p>
-        <button className="btn btn-primary" onClick={() => navigate('/search-page')}>Search for Business</button>
+        <button onClick={() => navigate('/search-page')}>Search for Business</button>
       </div>
     );
   }
@@ -152,8 +151,8 @@ const BusinessProfile = () => {
       </div>
 
       <div className="nav-buttons">
-        <button className="btn btn-muted" onClick={() => navigate('/')}>🏠 Back to Home</button>
-        <button className="btn btn-primary" onClick={() => navigate('/search-page')}>🔍 Search Businesses</button>
+        <button onClick={() => navigate('/')}>🏠 Back to Home</button>
+        <button onClick={() => navigate('/search-page')}>🔍 Search Businesses</button>
       </div>
     </div>
   );
