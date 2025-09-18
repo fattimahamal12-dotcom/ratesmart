@@ -18,7 +18,6 @@ const BusinessProfile = () => {
       try {
         setLoading(true);
         setError(null);
-        // Public fetch, no token required
         const { data: biz } = await axios.get(`http://localhost:8000/api/businesses/${id}/`);
         const { data: allProducts } = await axios.get('http://localhost:8000/api/products/');
         const { data: allReviews } = await axios.get('http://localhost:8000/api/reviews/');

@@ -23,7 +23,6 @@ const AdminLogin = () => {
     const storedAdmin = JSON.parse(localStorage.getItem('adminUser'));
 
     if (storedAdmin && storedAdmin.email === email && storedAdmin.password === password) {
-      // Store a dedicated admin token to avoid collision with business tokens
       localStorage.setItem('admin_access_token', 'admin-token');
       localStorage.setItem('loggedInAdmin', JSON.stringify(storedAdmin));
       console.log('Admin login successful, redirecting to dashboard...');

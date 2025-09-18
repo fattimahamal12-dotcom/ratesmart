@@ -18,20 +18,24 @@ const AdminDashboard = () => {
   const [confirm, setConfirm] = useState({ open: false, action: null, title: '', description: '', danger: false });
   const navigate = useNavigate();
 
-  const getAdminToken = () => localStorage.getItem('admin_access_token') || localStorage.getItem('access_token');
-
+  const getAdminToken = () =>
+    localStorage.getItem('admin_access_token') || localStorage.getItem('access_token');
   useEffect(() => {
     if (error || success) {
-      const t = setTimeout(() => { setError(null); setSuccess(null); }, 3000);
+      const t = setTimeout(() => {
+        setError(null);
+        setSuccess(null);
+      }, 3000);
       return () => clearTimeout(t);
     }
   }, [error, success]);
 
-  // Do NOT send Authorization on GET list endpoints to avoid JWT 401
   const fetchWithAuth = useCallback(
     async (url, setter) => {
       try {
-        const res = await axios.get(url);
+        const res = await axios.get(url, {
+          headers: { Authorization: `Bearer ${getAdminToken()}` },
+        });
         setter(res.data);
       } catch (err) {
         console.error(`Error fetching ${url}:`, err);
@@ -59,18 +63,17 @@ const AdminDashboard = () => {
       setLoading(false);
     }
   }, [fetchBusinesses, fetchReviews]);
-
   useEffect(() => {
     const token = getAdminToken();
     const adminUser = localStorage.getItem('loggedInAdmin');
-    if (token === 'admin-token' && adminUser) {
+    if (token && adminUser) {
       fetchData();
     } else {
       navigate('/admin-login', { replace: true });
     }
   }, [navigate, fetchData]);
 
-  const handleDeleteBusiness = async (id) => {
+  const handleDeleteBusiness = (id) => {
     setConfirm({
       open: true,
       action: async () => {
@@ -95,7 +98,7 @@ const AdminDashboard = () => {
     });
   };
 
-  const handleDeleteReview = async (id) => {
+  const handleDeleteReview = (id) => {
     setConfirm({
       open: true,
       action: async () => {
@@ -120,7 +123,7 @@ const AdminDashboard = () => {
     });
   };
 
-  const handleReset = async () => {
+  const handleReset = () => {
     setConfirm({
       open: true,
       action: async () => {
@@ -128,7 +131,11 @@ const AdminDashboard = () => {
         setSuccess(null);
         try {
           const token = getAdminToken();
-          await axios.post('http://localhost:8000/api/admin/reset/', {}, { headers: { Authorization: `Bearer ${token}` } });
+          await axios.post(
+            'http://localhost:8000/api/admin/reset/',
+            {},
+            { headers: { Authorization: `Bearer ${token}` } }
+          );
           setSuccess('System reset successfully! ✅');
           fetchBusinesses();
           fetchReviews();
@@ -160,7 +167,9 @@ const AdminDashboard = () => {
       <header className="admin-header">
         <h1 style={{ textAlign: 'center' }}>Admin Dashboard 📈</h1>
         <div className="admin-actions">
-          <button className="btn btn-danger" onClick={handleReset}>🔄 Reset System</button>
+          <button className="btn btn-danger" onClick={handleReset}>
+            🔄 Reset System
+          </button>
           <button
             onClick={() => {
               localStorage.removeItem('admin_access_token');
@@ -173,7 +182,14 @@ const AdminDashboard = () => {
         </div>
       </header>
 
-      <Toast kind={error ? 'error' : 'success'} message={error || success} onClose={() => { setError(null); setSuccess(null); }} />
+      <Toast
+        kind={error ? 'error' : 'success'}
+        message={error || success}
+        onClose={() => {
+          setError(null);
+          setSuccess(null);
+        }}
+      />
 
       <div className="admin-tabs">
         <div
@@ -209,7 +225,7 @@ const AdminDashboard = () => {
             </div>
             <div className="card">
               <h2>Fake Reviews Detected 🚩</h2>
-              <p>{reviews.filter(r => r.is_fake).length}</p>
+              <p>{reviews.filter((r) => r.is_fake).length}</p>
             </div>
           </div>
         )}
@@ -231,7 +247,12 @@ const AdminDashboard = () => {
                     <h3>{biz.name}</h3>
                     <p>Country: {biz.country}</p>
                     <p>State: {biz.state}</p>
-                    <button className="btn btn-danger" onClick={() => handleDeleteBusiness(biz.id)}>Delete 🚫</button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleDeleteBusiness(biz.id)}
+                    >
+                      Delete 🚫
+                    </button>
                   </div>
                 ))
               )}
@@ -260,7 +281,12 @@ const AdminDashboard = () => {
                     <p>Review: {review.text}</p>
                     <p>Sentiment: {review.sentiment || 'N/A'} 😊</p>
                     <p>Fake? {review.is_fake ? 'Yes 🚩' : 'No'}</p>
-                    <button className="btn btn-danger" onClick={() => handleDeleteReview(review.id)}>Delete 🚫</button>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => handleDeleteReview(review.id)}
+                    >
+                      Delete 🚫
+                    </button>
                   </div>
                 ))
               )}
